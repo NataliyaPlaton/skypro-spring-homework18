@@ -1,0 +1,10 @@
+GET http://localhost:8080/departments/
+
+###
+GET http://localhost:8080/departments/min-salary?departmentId=1
+
+###
+GET http://localhost:8080/departments/max-salary?departmentId=1
+
+###
+GET http://localhost:8080/departments/all?departmentId=1
