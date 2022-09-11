@@ -3,49 +3,35 @@ package pro.sky.skyprospringhomework18.model;
 import java.util.Objects;
 
 public class Employee {
-    private String firstName;
-    private String lastName;
-    private int salary;
-    private int departmentId;
 
-    public Employee(String firstName, String lastName, int salary, int departmentId) {
+
+    private final String firstName;
+
+    private final String lastName;
+    private final double salary;
+    private final int department;
+
+    public Employee(String firstName, String lastName, double salary, int department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
-        this.departmentId = departmentId;
+        this.department = department;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public int getDepartmentId() {
-        return this.departmentId;
-    }
-
-
-    public void setDepartment() {
-        this.departmentId = departmentId;
+    public int getDepartment() {
+        return department;
     }
 
     @Override
@@ -53,12 +39,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return salary == employee.salary && departmentId == employee.departmentId && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return Double.compare(employee.salary, salary) == 0 && department == employee.department && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, salary, departmentId);
+        return Objects.hash(firstName, lastName, salary, department);
     }
 
     @Override
@@ -67,7 +53,7 @@ public class Employee {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", salary=" + salary +
-                ", department=" + departmentId +
+                ", department=" + department +
                 '}';
     }
 }
